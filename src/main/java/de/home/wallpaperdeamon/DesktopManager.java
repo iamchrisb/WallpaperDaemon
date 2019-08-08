@@ -72,8 +72,16 @@ public class DesktopManager {
          @Override
          public void run() {
             File currentWallpaper = wallpapers[new Random().nextInt(wallpapers.length)];
+
+            //@cbl TODO
+            System.out.println(currentWallpaper.getAbsolutePath());
             setWallpaper(currentWallpaper.getAbsolutePath());
          }
       }, Constants.DEFAULT_DELAY, Constants.DEFAULT_PERIOD);
+   }
+
+   public void next() {
+      File currentWallpaper = wallpapers[new Random().nextInt(wallpapers.length)];
+      setWallpaper(currentWallpaper.getAbsolutePath());
    }
 }

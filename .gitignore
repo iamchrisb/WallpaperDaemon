@@ -52,3 +52,11 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+#gradle
+.gradle/
+build/
+gradle/
+gradlew
+gradlew.bat
+resources/images/icon.png

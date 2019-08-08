@@ -13,6 +13,8 @@ public interface TrayView {
       String getCurrentFolderPath();
 
       void start();
+
+      void next();
    }
 
    void setPresenter(Presenter presenter);

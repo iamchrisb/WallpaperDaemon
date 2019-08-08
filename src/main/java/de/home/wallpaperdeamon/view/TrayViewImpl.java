@@ -12,8 +12,9 @@ public class TrayViewImpl implements TrayView {
    public static final String INSERT_FOLDER_PATH = "Insert folder path";
    public static final String SHOW_CURRENT_PATH = "Show current path";
    public static final String PAUSE = "Pause";
-   public static final String KILL = "Kill";
+   public static final String KILL = "Exit";
    public static final String START = "Start";
+   public static final String INTERVAL = "Interval in minutes";
 
    public TrayViewImpl() {
       if (!SystemTray.isSupported()) {
@@ -66,10 +67,18 @@ public class TrayViewImpl implements TrayView {
       MenuItem pauseItem = new MenuItem(PAUSE);
       pauseItem.addActionListener(e -> {
          setStatus(STATUS.PAUSED);
-
       });
       trayPopupMenu.add(pauseItem);
       pauseItem.setEnabled(false);
+
+      //----------
+      trayPopupMenu.addSeparator();
+
+      MenuItem nextButton = new MenuItem("Next");
+      nextButton.addActionListener(e -> {
+         presenter.next();
+      });
+      trayPopupMenu.add(nextButton);
 
       trayPopupMenu.addSeparator();
 

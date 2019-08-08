@@ -11,8 +11,8 @@ public class TransitionHelper {
 
    public BufferedImage fadeTwoPictures(File picture1, File picture2) {
       try {
-         BufferedImage imgA = ImageIO.read(new File(imgAPath, token));
-         BufferedImage imgB = ImageIO.read(new File(imgBPath, token));
+         BufferedImage imgA = ImageIO.read(picture1);
+         BufferedImage imgB = ImageIO.read(picture2);
 
          if (imgA.getWidth() == imgB.getWidth() && imgA.getHeight() == imgB.getHeight()) {
             float alpha = 0.5f;
@@ -27,10 +27,10 @@ public class TransitionHelper {
             g.setComposite(ac);
             g.drawImage(imgB, 0, 0, null);
             g.setComposite(ac);
-            ImageIO.write(overlay, "PNG", new File(logFolder, browser + "__" + token));
+            //ImageIO.write(overlay, "PNG", new File(logFolder, browser + "__" + token));
             g.dispose();
          } else {
-            System.err.println(token + " dymension not match ");
+            //System.err.println(token + " dymension not match ");
          }
       } catch (IOException e) {
       }

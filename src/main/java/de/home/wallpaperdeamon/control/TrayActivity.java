@@ -6,6 +6,14 @@ import de.home.wallpaperdeamon.view.TrayView;
 import de.home.wallpaperdeamon.widgets.PathChooserWidget;
 
 public class TrayActivity implements TrayView.Presenter {
+
+   private final DesktopManager desktopManager;
+
+   public TrayActivity(final TrayView view) {
+      this.view = view;
+      desktopManager = new DesktopManager("/Users/cbl/Documents/wallpaper");
+   }
+
    @Override
    public void onChoosePathSelected(final String path) {
       final PathChooserWidget pathChooserWidget = new PathChooserWidget();
@@ -19,12 +27,12 @@ public class TrayActivity implements TrayView.Presenter {
 
    @Override
    public void start() {
-      final DesktopManager desktopManager = new DesktopManager(Constants.TRAY_ICON_PATH);
       desktopManager.rand();
    }
 
-   public TrayActivity(final TrayView view) {
-      this.view = view;
+   @Override
+   public void next() {
+      desktopManager.next();
    }
 
    private TrayView view;
